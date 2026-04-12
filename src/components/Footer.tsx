@@ -28,8 +28,8 @@ export default function Footer() {
               heading="Reference"
               items={[
                 { label: "Architecture", href: links.architecture },
-                { label: "Crate map", href: links.crateMap },
-                { label: "AI agents", href: links.agents },
+                { label: "Operators", href: links.operators },
+                { label: "ML inference", href: links.mlInference },
               ]}
             />
             <FooterColumn

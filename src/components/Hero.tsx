@@ -19,8 +19,8 @@ export default function Hero() {
   return (
     <section id="top" className="relative pt-20 sm:pt-28 lg:pt-36">
       <div className="container-page">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
+        <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
+          <div className="md:col-span-5">
             <p className="animate-fade-in-down text-sm font-medium text-slate-500 dark:text-slate-400">
               v0.8 · Apache 2.0
             </p>
@@ -62,7 +62,7 @@ export default function Hero() {
           </div>
 
           <div
-            className="animate-fade-in-up lg:col-span-7"
+            className="animate-fade-in-up md:col-span-7"
             style={{ animationDelay: "300ms" }}
           >
             <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-950 dark:border-slate-700">
@@ -71,7 +71,7 @@ export default function Hero() {
                   quickstart
                 </span>
               </div>
-              <pre className="overflow-x-auto p-4 font-mono text-[12px] leading-relaxed text-slate-300 sm:p-5 sm:text-[13px]">
+              <pre className="code-scroll-hint overflow-x-auto p-4 font-mono text-[12px] leading-relaxed text-slate-300 sm:p-5 sm:text-[13px]">
                 <code dangerouslySetInnerHTML={{ __html: highlightShell(quickstart) }} />
               </pre>
             </div>

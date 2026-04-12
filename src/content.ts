@@ -3,14 +3,12 @@
 
 export const links = {
   github: "https://github.com/volley-streams/volley",
-  docs: "https://github.com/volley-streams/volley#documentation",
-  quickstart: "https://github.com/volley-streams/volley#quick-start",
-  kubernetes:
-    "https://github.com/volley-streams/volley/blob/main/docs/KUBERNETES.md",
-  architecture:
-    "https://github.com/volley-streams/volley/blob/main/ARCHITECTURE.md",
-  crateMap: "https://github.com/volley-streams/volley/blob/main/CRATE_MAP.md",
-  agents: "https://github.com/volley-streams/volley/blob/main/AGENTS.md",
+  docs: "https://docs.volley.run",
+  quickstart: "https://docs.volley.run/getting-started/quickstart.html",
+  kubernetes: "https://docs.volley.run/guides/horizontal-scaling.html",
+  architecture: "https://docs.volley.run/architecture/overview.html",
+  operators: "https://docs.volley.run/guides/operators.html",
+  mlInference: "https://docs.volley.run/guides/ml-inference.html",
   contributing:
     "https://github.com/volley-streams/volley/blob/main/CONTRIBUTING.md",
   license: "https://github.com/volley-streams/volley/blob/main/LICENSE",

@@ -21,8 +21,8 @@ export default function CodeShowcase() {
       aria-label="Code example"
     >
       <div className="container-page">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
-          <div className="reveal lg:col-span-5">
+        <div className="grid gap-10 md:grid-cols-12 md:items-center md:gap-16">
+          <div className="reveal md:col-span-5">
             <p className="text-sm font-semibold uppercase tracking-widest text-brand-400">
               DataStream API
             </p>
@@ -57,7 +57,7 @@ export default function CodeShowcase() {
             </ul>
           </div>
 
-          <div className="reveal lg:col-span-7" style={{ transitionDelay: "120ms" }}>
+          <div className="reveal md:col-span-7" style={{ transitionDelay: "120ms" }}>
             <div className="group relative overflow-hidden rounded-xl border border-slate-700 bg-slate-900">
               {/* Terminal chrome */}
               <div className="flex items-center justify-between border-b border-slate-800 px-4 py-3">
@@ -112,7 +112,7 @@ export default function CodeShowcase() {
                 </button>
               </div>
 
-              <pre className="overflow-x-auto p-4 font-mono text-[12px] leading-relaxed text-slate-200 sm:p-5 sm:text-[13px]">
+              <pre className="code-scroll-hint overflow-x-auto p-4 font-mono text-[12px] leading-relaxed text-slate-200 sm:p-5 sm:text-[13px]" style={{ "--code-bg": "rgb(15 23 42)" } as React.CSSProperties}>
                 <code dangerouslySetInnerHTML={{ __html: highlight(codeSample) }} />
               </pre>
             </div>

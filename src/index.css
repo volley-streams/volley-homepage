@@ -127,6 +127,30 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Horizontal scroll fade hint for code blocks on small screens */
+  .code-scroll-hint {
+    position: relative;
+  }
+
+  .code-scroll-hint::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2rem;
+    background: linear-gradient(to right, transparent, var(--code-bg, rgb(2 6 23)));
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.2s;
+  }
+
+  @media (min-width: 768px) {
+    .code-scroll-hint::after {
+      display: none;
+    }
+  }
 }
 
 @layer utilities {
