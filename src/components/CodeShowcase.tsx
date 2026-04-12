@@ -22,7 +22,7 @@ export default function CodeShowcase() {
     >
       <div className="container-page">
         <div className="grid gap-10 md:grid-cols-12 md:items-center md:gap-16">
-          <div className="reveal md:col-span-5">
+          <div className="min-w-0 reveal md:col-span-5">
             <p className="text-sm font-semibold uppercase tracking-widest text-brand-400">
               DataStream API
             </p>
@@ -57,7 +57,7 @@ export default function CodeShowcase() {
             </ul>
           </div>
 
-          <div className="reveal md:col-span-7" style={{ transitionDelay: "120ms" }}>
+          <div className="min-w-0 reveal md:col-span-7" style={{ transitionDelay: "120ms" }}>
             <div className="group relative overflow-hidden rounded-xl border border-slate-700 bg-slate-900">
               {/* Terminal chrome */}
               <div className="flex items-center justify-between border-b border-slate-800 px-4 py-3">
