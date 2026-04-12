@@ -42,7 +42,7 @@ export default function Hero() {
               className="mt-8 animate-fade-in-up"
               style={{ animationDelay: "220ms" }}
             >
-              <a href={links.quickstart} className="btn btn-primary">
+              <a href={links.quickstart} target="_blank" rel="noreferrer" className="btn btn-primary">
                 Get started
                 <svg
                   className="h-4 w-4"

@@ -86,6 +86,8 @@ export default function Nav() {
           </a>
           <a
             href={links.docs}
+            target="_blank"
+            rel="noreferrer"
             className="rounded-md px-3 py-2 text-sm font-medium text-slate-600 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
           >
             Docs
@@ -146,6 +148,8 @@ export default function Nav() {
               <a
                 key={item.label}
                 href={item.href}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noreferrer" : undefined}
                 onClick={() => setOpen(false)}
                 className="rounded-md px-3 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
               >
