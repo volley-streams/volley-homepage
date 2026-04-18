@@ -17,7 +17,7 @@ export const links = {
 export interface Feature {
   title: string;
   description: string;
-  icon: "bolt" | "spark" | "trace" | "code";
+  icon: "bolt" | "spark" | "trace" | "code" | "dag";
 }
 
 export const features: Feature[] = [
@@ -45,23 +45,38 @@ export const features: Feature[] = [
       "A typed DataStream API written in Rust. Typestate enforces topology at compile time — missing sinks and operators after sinks fail to build. For non-trivial pipelines, code reads and refactors better than SQL.",
     icon: "code",
   },
+  {
+    title: "Multi-source, multi-sink DAGs",
+    description:
+      "Compose arbitrary topologies with tee() fan-out, union merges, N-way windowed joins, and content-based routing. Every epoch commits atomically across all sinks via cluster-wide 2PC over Arrow Flight, with a per-worker circuit breaker observable at /readyz.",
+    icon: "dag",
+  },
 ];
 
-export const codeSample = `use volley_core::prelude::*;
-use volley_connector_kafka::{KafkaEnvExt, KafkaStreamExt};
-use std::time::Duration;
+export const codeSample = `use std::time::Duration;
+use volley_core::prelude::*;
+use volley_connectors::memory::{MemorySink, MemorySource};
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    let source = KafkaSourceConfig::new("localhost:9092", "events", "grp");
-    let sink   = KafkaSinkConfig::new("localhost:9092", "aggregates");
-    StreamExecutionEnvironment::new()
-        .from_kafka(source).await?
-        .filter_expr(col("amount").gt(lit(0)))
+    let tmp = tempfile::tempdir().unwrap();
+    let sink = MemorySink::new();
+    let output = sink.handle();                    // survives the move into to_sink()
+
+    let report = StreamExecutionEnvironment::new()
+        .from_source(MemorySource::new(records))
+        .filter_expr(col("amount").gt(lit(100)))
         .key_by(col("user_id"))
-        .window(TumblingWindows::of(Duration::from_secs(60)))
-        .aggregate_expr(sum(col("amount")))
-        .to_kafka(sink).await?
-        .execute("kafka-aggregation-job")
-        .await
+        .window(TumblingWindows::of(Duration::from_secs(300)))
+        .aggregate_expr(
+            vec![sum(col("amount"))],
+            RocksDbBackend::open(tmp.path().join("state")).unwrap(),
+        )
+        .to_sink(sink)
+        .execute("aggregation-job")
+        .await?;
+
+    println!("{} epochs committed, {} rows",
+        report.epochs_committed, output.lock().unwrap().len());
+    Ok(())
 }`;

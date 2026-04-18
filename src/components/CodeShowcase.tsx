@@ -54,6 +54,11 @@ export default function CodeShowcase() {
                 The same pipeline runs single-node or distributed across
                 Kubernetes with Arrow Flight shuffle.
               </Bullet>
+              <Bullet>
+                Multi-source, multi-sink DAGs with <Code>tee()</Code> fan-out
+                and N-way windowed joins. Every epoch commits atomically
+                across sinks via cluster-wide 2PC.
+              </Bullet>
             </ul>
           </div>
 
