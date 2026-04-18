@@ -91,5 +91,16 @@ function FeatureIcon({ name }: { name: Feature["icon"] }) {
           <path d="m8 8-5 4 5 4M16 8l5 4-5 4M14 6l-4 12" />
         </svg>
       );
+    case "dag":
+      return (
+        <svg {...common}>
+          <circle cx="4" cy="12" r="1.6" />
+          <circle cx="12" cy="6" r="1.6" />
+          <circle cx="12" cy="18" r="1.6" />
+          <circle cx="20" cy="6" r="1.6" />
+          <circle cx="20" cy="18" r="1.6" />
+          <path d="M5.5 12l5-5M5.5 12l5 5M13.5 6h5M13.5 18h5" />
+        </svg>
+      );
   }
 }

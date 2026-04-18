@@ -22,7 +22,7 @@ export default function Hero() {
         <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
           <div className="min-w-0 md:col-span-5">
             <p className="animate-fade-in-down text-sm font-medium text-slate-500 dark:text-slate-400">
-              v0.8 · Apache 2.0
+              v1.0 · Apache 2.0
             </p>
 
             <h1 className="mt-6 animate-fade-in-up text-balance text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl dark:text-white">
