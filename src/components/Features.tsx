@@ -75,16 +75,6 @@ function FeatureIcon({ name }: { name: Feature["icon"] }) {
           <path d="M6.5 6l5 3M6.5 12l5-3M6.5 12l5 3M6.5 18l5-3M14.5 9l4 3M14.5 15l4-3" />
         </svg>
       );
-    case "trace":
-      return (
-        <svg {...common}>
-          <path d="M3 8h6M3 14h10M3 20h14" />
-          <circle cx="9" cy="8" r="1.4" />
-          <circle cx="13" cy="14" r="1.4" />
-          <circle cx="17" cy="20" r="1.4" />
-          <path d="M9 8v6M13 14v6" strokeDasharray="1 2" />
-        </svg>
-      );
     case "code":
       return (
         <svg {...common}>

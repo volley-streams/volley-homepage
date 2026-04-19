@@ -117,9 +117,11 @@ export default function CodeShowcase() {
                 </button>
               </div>
 
-              <pre className="code-scroll-hint overflow-x-auto p-4 font-mono text-[12px] leading-relaxed text-slate-200 sm:p-5 sm:text-[13px]" style={{ "--code-bg": "rgb(15 23 42)" } as React.CSSProperties}>
-                <code dangerouslySetInnerHTML={{ __html: highlight(codeSample) }} />
-              </pre>
+              <div className="code-scroll-hint" style={{ "--code-bg": "rgb(15 23 42)" } as React.CSSProperties}>
+                <pre className="overflow-x-auto p-4 font-mono text-[12px] leading-relaxed text-slate-200 sm:p-5 sm:text-[13px]">
+                  <code dangerouslySetInnerHTML={{ __html: highlight(codeSample) }} />
+                </pre>
+              </div>
             </div>
           </div>
         </div>

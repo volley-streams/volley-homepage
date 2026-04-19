@@ -71,9 +71,11 @@ export default function Hero() {
                   quickstart
                 </span>
               </div>
-              <pre className="code-scroll-hint overflow-x-auto p-4 font-mono text-[12px] leading-relaxed text-slate-300 sm:p-5 sm:text-[13px]">
-                <code dangerouslySetInnerHTML={{ __html: highlightShell(quickstart) }} />
-              </pre>
+              <div className="code-scroll-hint">
+                <pre className="overflow-x-auto p-4 font-mono text-[12px] leading-relaxed text-slate-300 sm:p-5 sm:text-[13px]">
+                  <code dangerouslySetInnerHTML={{ __html: highlightShell(quickstart) }} />
+                </pre>
+              </div>
             </div>
           </div>
         </div>

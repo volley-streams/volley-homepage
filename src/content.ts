@@ -17,7 +17,7 @@ export const links = {
 export interface Feature {
   title: string;
   description: string;
-  icon: "bolt" | "spark" | "trace" | "code" | "dag";
+  icon: "bolt" | "spark" | "code" | "dag";
 }
 
 export const features: Feature[] = [
@@ -34,12 +34,6 @@ export const features: Feature[] = [
     icon: "spark",
   },
   {
-    title: "Per-record traceability",
-    description:
-      "OpenTelemetry trace context travels with each record. Configurable sampling (Always, Never, Ratio), W3C traceparent propagation on Kafka sources and sinks, and spans on every operator.",
-    icon: "trace",
-  },
-  {
     title: "Code, not SQL",
     description:
       "A typed DataStream API written in Rust. Typestate enforces topology at compile time — missing sinks and operators after sinks fail to build. For non-trivial pipelines, code reads and refactors better than SQL.",
@@ -48,7 +42,7 @@ export const features: Feature[] = [
   {
     title: "Multi-source, multi-sink DAGs",
     description:
-      "Compose arbitrary topologies with tee() fan-out, union merges, N-way windowed joins, and content-based routing. Every epoch commits atomically across all sinks via cluster-wide 2PC over Arrow Flight, with a per-worker circuit breaker observable at /readyz.",
+      "Build pipelines with multiple sources and sinks. Fan out with tee(), merge streams with union, and join several streams on a window. Each checkpoint commits to every sink together — or not at all — so you never get partial writes after a failure.",
     icon: "dag",
   },
 ];
