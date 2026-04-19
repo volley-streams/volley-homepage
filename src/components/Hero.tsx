@@ -110,7 +110,14 @@ function highlightCommand(cmd: string): string {
   const escape = (s: string) =>
     s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
+  // URL first: its character class matches until whitespace, which would otherwise
+  // swallow the space inside a class="..." attribute of a span inserted by an
+  // earlier replace and terminate the match mid-tag.
   return escape(cmd)
+    .replace(
+      /(https:\/\/[^\s\\]+)/g,
+      '<span class="text-slate-400">$1</span>',
+    )
     .replace(
       /\b(cargo|volley|cd)\b/g,
       '<span class="text-white font-medium">$1</span>',
@@ -126,10 +133,6 @@ function highlightCommand(cmd: string): string {
     .replace(
       /(\$EDITOR)/g,
       '<span class="text-amber-300">$1</span>',
-    )
-    .replace(
-      /(https:\/\/[^\s\\]+)/g,
-      '<span class="text-slate-400">$1</span>',
     )
     .replace(
       /\b(my-pipeline|src\/main\.rs)\b/g,
