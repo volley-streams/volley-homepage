@@ -28,3 +28,8 @@ pnpm-debug.log*
 # Turbo / caches
 .cache/
 .vite/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
